@@ -2,7 +2,7 @@ import { displayMainWeather, displayForecast } from "./forecast.js";
 
 async function fetchWeatherData(location) {
   const PUBLIC_API = "684089bf2aaf4ed1bc0232421241601";
-  let end_point = new URL(`http://api.weatherapi.com/v1/forecast.json`);
+  let end_point = new URL(`https://api.weatherapi.com/v1/forecast.json`);
   end_point.searchParams.set("key", PUBLIC_API);
   end_point.searchParams.set("q", location);
   end_point.searchParams.set("days", 3);
