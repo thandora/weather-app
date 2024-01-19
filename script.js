@@ -12,6 +12,7 @@ async function fetchWeatherData(location) {
 function displayMainWeather(weatherData) {
   const nowCity = document.querySelector(".weather-now .city");
   const nowCountry = document.querySelector(".weather-now .country");
+  const nowCondition = document.querySelector(".weather-now .condition");
   const nowTemp = document.querySelector(".weather-now .temperature");
   const nowTempFeel = document.querySelector(".weather-now .temperature-feel");
   const nowHumidity = document.querySelector(".weather-now .humidity");
@@ -19,6 +20,7 @@ function displayMainWeather(weatherData) {
 
   nowCity.textContent = `${weatherData.location.name}`;
   nowCountry.textContent = `${weatherData.location.country}`;
+  nowCondition.textContent = `${weatherData.current.condition.text}`;
   nowTemp.textContent = `${weatherData.current.temp_c}°C`;
   nowTempFeel.textContent = `${weatherData.current.feelslike_c}°C`;
   nowHumidity.textContent = `${weatherData.current.humidity}%`;
