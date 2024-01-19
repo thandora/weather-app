@@ -12,11 +12,26 @@ async function fetchWeatherData(location) {
   return jsonData;
 }
 
-fetchWeatherData("derry").then(loadDom);
-
 function loadDom(data) {
   displayMainWeather(data);
+  const forecasts = document.querySelector(".forecasts");
+
+  while (forecasts.firstChild) {
+    forecasts.removeChild(forecasts.firstChild);
+  }
+  
   for (let forecastData of data.forecast.forecastday) {
     displayForecast(forecastData);
   }
 }
+
+fetchWeatherData("derry").then(loadDom);
+
+const searchBar = document.querySelector(".search");
+
+searchBar.addEventListener("keyup", (e) => {
+  if (e.code === "Enter") {
+    const searchQuery = searchBar.value;
+    fetchWeatherData(searchQuery).then(loadDom);
+  }
+});
