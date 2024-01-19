@@ -8,3 +8,26 @@ async function fetchWeatherData(location) {
   const jsonData = await response.json();
   return jsonData;
 }
+
+function displayMainWeather(weatherData) {
+  const nowCity = document.querySelector(".weather-now .city");
+  const nowCountry = document.querySelector(".weather-now .country");
+  const nowTemp = document.querySelector(".weather-now .temperature");
+  const nowTempFeel = document.querySelector(".weather-now .temperature-feel");
+  const nowHumidity = document.querySelector(".weather-now .humidity");
+  const nowRainChance = document.querySelector(".weather-now .rain-chance");
+
+  nowCity.textContent = `${weatherData.location.name}`;
+  nowCountry.textContent = `${weatherData.location.country}`;
+  nowTemp.textContent = `${weatherData.current.temp_c}°C`;
+  nowTempFeel.textContent = `${weatherData.current.feelslike_c}°C`;
+  nowHumidity.textContent = `${weatherData.current.humidity}%`;
+  nowRainChance.textContent = `Chance of rain today: ${weatherData.forecast.forecastday[0].day.daily_chance_of_rain}%`;
+}
+
+function displayForecast(weatherData) {}
+
+fetchWeatherData("derry").then((data) => {
+  console.log(data);
+  displayMainWeather(data);
+});
