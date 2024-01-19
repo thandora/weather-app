@@ -12,11 +12,11 @@ function displayForecast(forecastData) {
 
   const avgTemp = document.createElement("p");
   avgTemp.classList.add("average-temperature");
-  avgTemp.textContent = `${forecastData.day.avgtemp_c}°C`;
+  avgTemp.textContent = `Avg temp: ${forecastData.day.avgtemp_c}°C`;
 
   const rainChance = document.createElement("p");
   rainChance.classList.add("rain-chance");
-  rainChance.textContent = `${forecastData.day.daily_chance_of_rain}%`;
+  rainChance.textContent = `Chance of rain: ${forecastData.day.daily_chance_of_rain}%`;
 
   container.append(date, condition, avgTemp, rainChance);
 
@@ -36,9 +36,9 @@ function displayMainWeather(weatherData) {
   nowCity.textContent = `${weatherData.location.name}`;
   nowCountry.textContent = `${weatherData.location.country}`;
   nowCondition.textContent = `${weatherData.current.condition.text}`;
-  nowTemp.textContent = `${weatherData.current.temp_c}°C`;
-  nowTempFeel.textContent = `${weatherData.current.feelslike_c}°C`;
-  nowHumidity.textContent = `${weatherData.current.humidity}%`;
+  nowTemp.textContent = `Temp: ${weatherData.current.temp_c}°C`;
+  nowTempFeel.textContent = `Feels like: ${weatherData.current.feelslike_c}°C`;
+  nowHumidity.textContent = `Humidity: ${weatherData.current.humidity}%`;
   nowRainChance.textContent = `Chance of rain today: ${weatherData.forecast.forecastday[0].day.daily_chance_of_rain}%`;
 }
 export { displayMainWeather, displayForecast };

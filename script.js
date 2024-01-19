@@ -12,8 +12,11 @@ async function fetchWeatherData(location) {
   return jsonData;
 }
 
-fetchWeatherData("derry").then((data) => {
-  console.log(data);
+fetchWeatherData("derry").then(loadDom);
+
+function loadDom(data) {
   displayMainWeather(data);
-  displayForecast(data.forecast.forecastday[1]);
-});
+  for (let forecastData of data.forecast.forecastday) {
+    displayForecast(forecastData);
+  }
+}
