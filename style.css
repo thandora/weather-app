@@ -24,11 +24,21 @@ body {
   gap: 50px;
 }
 
+.search {
+  padding: 0 12px;
+  border-radius: 8px;
+  border: none;
+  background-color: #685255;
+  color: #ece5e6;
+  font-family: poppins;
+  font-size: 1.6rem;
+}
+
 .weather-now,
 .forecast {
   width: 290px;
   background-color: #1c1617;
-  padding: 30px 20px;
+  padding: 22px 20px;
   text-align: left;
   gap: 4px;
 
